@@ -1,0 +1,7 @@
+Hi, this is the homepage for Default Skin! A boilerplate setup that contains a homepage, a User model, and some other minor details, so that I don't have to do this boring crap every time I make a new Rails project.</br></br>
+
+<% unless user_signed_in? %>
+  <%= link_to 'Register', register_path %> or <%= link_to 'Sign in', sign_in_path %>
+<% else %>
+  <%= link_to 'Your page', user_path(current_user) %> or <%= link_to 'Sign out',sign_out_path %>
+<% end %>
