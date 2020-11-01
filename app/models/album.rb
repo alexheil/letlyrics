@@ -3,7 +3,7 @@ class Album < ApplicationRecord
   friendly_id :slug_candidates, use: :slugged
 
   belongs_to :artist
-  has_many :lyrics, dependent: :destroy
+  has_many :tracks, dependent: :destroy
 
   default_scope -> { order('name') }
 

@@ -4,7 +4,7 @@ class Track < ApplicationRecord
 
   belongs_to :artist
   belongs_to :album
-  belongs_to :user
+  #belongs_to :user
 
   default_scope -> { order('name') }
 
@@ -17,7 +17,7 @@ class Track < ApplicationRecord
   private
 
     def should_generate_new_friendly_id?
-      track_name_changed?
+      name_changed?
     end
 
     def slug_candidates

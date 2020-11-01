@@ -13,14 +13,16 @@ Rails.application.routes.draw do
 
   resources :users, controller: 'users/users', only: [:show], path: 'u'
 
+  resources :artists, controller: 'artists/artists', only: :index
+
   # TODO: Change path to lyrics/artist/album/track
-  resources :artists, controller: 'artists/artists', except: [:index, :new, :create] do
-    resources :albums, controller: 'albums/albums', except: [:index, :new, :create] do
-      resources :tracks, controller: 'tracks/tracks', except: [:index, :new, :create]
+  resources :artists, controller: 'artists/artists', except: [:index, :new, :create], path: 'lyrics/' do
+    resources :albums, controller: 'albums/albums', except: [:index, :new, :create], path: '' do
+      resources :tracks, controller: 'tracks/tracks', except: [:index, :new, :create], path: ''
     end
   end
 
   # TODO: Change path to lyrics/new
-  resources :tracks, controller: 'tracks/tracks', only: [:new, :create]
+  resources :tracks, controller: 'tracks/tracks', only: [:new, :create], path: 'add-lyrics/'
 
 end

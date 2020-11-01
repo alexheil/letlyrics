@@ -1,0 +1,23 @@
+<div class="pb5"></div>
+<div class="test">
+
+  <div class="flex">
+    <div class="az-play-container">
+      <div class="title3">
+        <i class="far fa-play-circle"></i>
+      </div>
+    </div>
+    <div class="az-song-container">
+      Play
+    </div>
+  </div>
+
+  <% if @track.present? %>
+    <%= @track.name %> on Amazon Music (<i class="fab fa-amazon"></i>)
+  <% elsif @album.present? %>
+    <%= @album.name %> on Amazon Music (<i class="fab fa-amazon"></i>)
+  <% elsif @artist.present? %>
+    <%= @artist.name %> on Amazon Music (<i class="fab fa-amazon"></i>)
+  <% end %>
+</div>
+<div class="pb5"></div>

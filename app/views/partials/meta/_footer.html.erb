@@ -1,0 +1,28 @@
+<footer class="full-footer-container">
+  <div class="main-container">
+    <nav class="footer">
+      <div class="center">
+        <%= link_to "let:lyrics", root_url, class: "nav-links" %>
+      </div>
+      <div class="pb1"></div>
+      <div class="center">
+        <li><%= link_to "DMCA", 'dmca_path', class: "nav-links" %></li>
+
+        <li><%= link_to "About", 'about_path', class: "nav-links" %></li>
+        <li><%= link_to "Terms", 'terms_path', class: "nav-links" %></li>
+        <li><%= link_to "Privacy", 'privacy_path', class: "nav-links" %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Account", user_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to "Sign Out", sign_out_path, class: "nav-links" %></li>
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="pb1"></div>
+    
+    <div class="footer-disclaimer">
+      <%= link_to "Built by Ninth Digital | Buffalo, New York, Earth.", "https://www.ninth.digital" %>
+    </div>
+    <div class="pb1"></div>
+  </div>
+</footer>

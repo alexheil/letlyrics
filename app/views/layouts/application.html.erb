@@ -8,11 +8,35 @@
     <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
     <%= csrf_meta_tags %>
 
+    <script src="https://kit.fontawesome.com/2489bdf35c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag    'main', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="color-background"></div>
+    <%= render 'partials/meta/header' %>
+    <div class="pb3"></div>
+   
+    <div class="container">
+
+      <div id="site-content">
+        <%= render 'partials/meta/nameplate' if @artist.present? %>
+        <%= render 'partials/meta/play_here' if @artist.present? %>
+        <%= yield %>
+        <%= render 'partials/meta/transition_content' if @artist.present? %>
+      </div>
+
+      <div id="site-form">
+        <%= render 'partials/meta/track_form' %>
+      </div>
+
+    </div>
+
+    <%= render 'partials/meta/footer' %>
+
   </body>
 </html>

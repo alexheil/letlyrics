@@ -1,6 +1,10 @@
 class Artists::ArtistsController < ApplicationController
 
-  before_action :set_variables
+  before_action :set_variables, except: :index
+
+  def index
+    @artists = Artist.all
+  end
 
   def show
     @albums = @artist.albums

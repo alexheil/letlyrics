@@ -1,0 +1,31 @@
+<% if @artist.present? %>
+  <div class="mini-text bold">
+    <span class="border-bottom">ARTIST</span>
+  </div>
+  <div class="pbhalf"></div>
+  <div class="title2">
+    <%= link_to @artist.name, artist_path(@artist) %>
+  </div>
+<% end %>
+
+<% if @album.present? %>
+  <div class="pb1"></div>
+  <div class="mini-text bold">
+    <span class="border-bottom">ALBUM</span>
+  </div>
+  <div class="pbhalf"></div>
+  <div class="title1">
+    <%= link_to @album.name, artist_album_path(@artist, @album), class: "secondary-link" %>
+  </div>
+<% end %>
+
+<% if @track.present? %>
+  <div class="pb1"></div>
+  <div class="mini-text bold">
+    <span class="border-bottom">TRACK</span>
+  </div>
+  <div class="pbhalf"></div>
+  <div class="title1">
+    <%= @track.name %>
+  </div>
+<% end %>

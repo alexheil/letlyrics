@@ -1,0 +1,77 @@
+<header class="header-container pt1 pb1">
+  <div class="header-line-height">
+    <div class="flex">
+
+      <div class="title-container">
+        <div class="header-title-container">
+          <%= link_to root_url do %>
+            let:lyrics
+          <% end %>
+        </div>
+      </div>
+
+      <div class="nav-container right">
+
+        <div class="desktop-only">
+          <nav class="header">
+            <li><%= link_to 'All Artists', artists_path, class: 'nav-links' %></li>
+            <li class="add-lyrics-click"><span class="nav-links bold">Add Lyrics</span></li>
+            <% if user_signed_in? %>
+              <li><%= link_to 'Account', user_path(current_user), class: 'nav-links' %></li>
+              <li><%= link_to 'Sign Out', sign_out_path, class: 'nav-links' %></li>
+            <% else %>
+              <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
+            <% end %>
+          </nav>
+        </div>
+
+        <div class="mobile-only-block">
+          <div id="menu-click-open">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<div id="menu-container" class="side-menu">
+  <header class="header-container pt1 pb1">
+    <div class="header-line-height">
+
+      <div class="flex">
+
+        <div class="title-container">
+          <div class="header-title-container">
+            <%= link_to root_url do %>
+              <span class="white">let:lyrics</span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="nav-container right">
+          <div id="menu-click-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <ul>
+      <div class="pb3"></div>
+      <li><%= link_to 'All Artists', artists_path, class: "nav-links" %></li>
+      <li class="add-lyrics-click"><span class="nav-links bold">Add Lyrics</span></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'Account', user_path(current_user), class: "nav-links" %></li>
+        <li><%= link_to 'Settings', edit_user_settings_path(current_user), class: "nav-links" %></li>
+        <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
+      <% else %>
+        <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
+      <% end %>
+    </ul>
+
+  </header>
+</div>

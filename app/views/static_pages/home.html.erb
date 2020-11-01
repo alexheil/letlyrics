@@ -1,7 +1,69 @@
-Hi, this is the homepage for Default Skin! A boilerplate setup that contains a homepage, a User model, and some other minor details, so that I don't have to do this boring crap every time I make a new Rails project.</br></br>
+Hi, this is the homepage for letlyrics!
+
+</br></br>
 
 <% unless user_signed_in? %>
   <%= link_to 'Register', register_path %> or <%= link_to 'Sign in', sign_in_path %>
 <% else %>
   <%= link_to 'Your page', user_path(current_user) %> or <%= link_to 'Sign out',sign_out_path %>
 <% end %>
+</br></br>
+
+<% if Track.any? %>
+  <b>Full lyrics <%= Track.all.count %></b></br></br>
+  <% Track.all.each do |track| %>
+
+    <%= link_to track.artist.name, artist_path(track.artist) %></br>
+    <%= link_to track.album.name, artist_album_path(track.artist, track.album) %></br>
+    <%= link_to track.name, artist_album_track_path(track.artist, track.album, track) %></br>
+    <%= track.content %></br></br>
+
+  <% end %>
+
+  </br>
+
+<% end %>
+
+<% if Artist.any? %>
+  <b><%= link_to "Artists - " + Artist.all.count.to_s, artists_path %></b></br></br>
+  <% Artist.all.each do |artist| %>
+
+    <%= link_to artist.name, artist_path(artist) %></br>
+
+    <% if artist.albums.any? %>
+
+      <% artist.albums.each do |album| %>
+
+        - <%= link_to album.name, artist_album_path(artist, album) %></br>
+
+        <% if album.tracks.any? %>
+
+          <% album.tracks.each do |track| %>
+            - - <%= link_to track.name, artist_album_track_path(artist, album, track) %></br>
+          <% end %>
+
+        <% end %>
+
+      <% end %>
+
+      </br>
+
+    <% end %>
+
+  <% end %>
+
+<% end %>
+
+<% if Album.any? %>
+  <b>Albums <%= Album.all.count %></b></br></br>
+  <% Album.all.each do |album| %>
+
+    <%= link_to album.name, artist_album_path(album.artist, album) %></br>
+    <%= album.artist_name %></br></br>
+
+  <% end %>
+
+<% end %>
+
+</br></br>
+<%= link_to 'Add lyrics', new_track_path %>

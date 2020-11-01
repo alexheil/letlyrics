@@ -1,0 +1,12 @@
+<% if @uni_track.errors.any? %>
+  <div id="error_explanation">
+    <div class="title-1">
+      <%= pluralize(@uni_track.errors.count, "error") %> prevented your lyrics from being saved:
+    </div>
+    <ul>
+    <% @uni_track.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

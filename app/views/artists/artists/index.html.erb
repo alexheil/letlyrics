@@ -1,0 +1,6 @@
+<% if @artists.any? %>
+  <b>Artists <%= @artists.count %></b></br></br>
+  <% @artists.each do |artist| %>
+    <%= link_to artist.name, artist_path(artist) %> - <%= artist.albums.count if artist.albums.any? %> - <%= artist.tracks.count if artist.tracks.any? %></br>
+  <% end %>
+<% end %>

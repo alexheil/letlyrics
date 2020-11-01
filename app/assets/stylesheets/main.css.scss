@@ -1,0 +1,724 @@
+
+$main: #754DB7; /* emerald */
+$main-dark: #6643A0;
+$main-light: #F0EBF7;
+
+$secondary: #ff4674; /* carrot */
+$secondary-dark: #DF3D66;
+$secondary-light: #FFEBF0;
+
+$third: #ffb6a2; /* carrot */
+$third-dark: #DF9F8E;
+$third-light: #FFF7F5;
+
+$green: #19de6b; /* seaweed */
+$green-dark: #16c25e; /* seaweed */
+$green-light: #e2fbec;
+
+$red: #de192a; /* pomegranate */
+$red-dark: #c21625; /* pomegranate */
+$red-light: #fbe2e4; /* pomegranate */
+
+$black: #202324; /* cannonball */
+$border: #a0a9ab; /* buffalo */
+$white: #fdfdfd; /* ghost */
+$grey: #cfd4d5; /* gallery */
+$darkgrey: #808c8f; /* shade */
+
+$background_color: #F2FBF5;
+$border_color: #D4DCD6;
+
+$fancy: Nunito, Arial, sans-serif;
+
+$boxborder: 2px solid #ccc;
+$letterspacer: 0.25px;
+$radius: 5px;
+$color-background: 
+  linear-gradient(0deg, rgba(253, 253, 253, 1) 25%, rgba(253, 253, 253, 0.5) 50%, rgba(253, 253, 253, 0) 100%),
+  linear-gradient(225deg, #754db7, rgba(117, 77, 183, 0) 70%),
+  linear-gradient(135deg, #ff4674, rgba(255, 255, 255, 0) 70%),
+  linear-gradient(45deg, #ffb6a2, rgba(255, 182, 162, 0) 70%),
+  linear-gradient(315deg, #4674ff, rgba(70, 116, 255, 0) 70%);
+
+$spacerhalf: 5px;
+$spacer1: 10px;
+$spacer2: 20px;
+$spacer3: 30px;
+$spacer4: 40px;
+$spacer5: 50px;
+$spacer7: 70px;
+$spacer10: 100px;
+
+/* ******************** VARIABLES ***************** */
+
+/**** FORMS ****/
+
+$formminheight: 54px;
+$formlineheight: 30px;
+
+$shadow: 0 0px 20px -12px rgba(32, 35, 36, 0.42), 0 0px 20px 0px rgba(32, 35, 36, 0.12), 0 0px 10px -5px rgba(32, 35, 36, 0.2);
+$shadow-lite: 0 2px 2px 0 rgba(32, 35, 36, 0.14), 0 3px 1px -2px rgba(32, 35, 36, 0.12), 0 1px 5px 0 rgba(32, 35, 36, 0.2);
+
+/* ****************************** MIXIN ****************************** */
+
+@mixin transition {
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  &:hover {
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+  }
+}
+
+@mixin textLabels {
+  font-weight: 700;
+}
+
+/* ****************************** UNIVERSAL ****************************** */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: $letterspacer;
+  font-family: $fancy;
+  font-weight: 400;
+  background: $white;
+  color: $black;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  font-weight: 700;
+  @include transition;
+  color: $main;
+  text-decoration: none;
+  &:hover {
+    color: $main-dark;
+  }
+}
+
+.secondary-link {
+  font-weight: 700;
+  @include transition;
+  color: $secondary;
+  text-decoration: none;
+  &:hover {
+    color: $secondary-dark;
+  }
+}
+
+.third-link {
+  font-weight: 700;
+  @include transition;
+  color: $third;
+  text-decoration: none;
+  &:hover {
+    color: $third-dark;
+  }
+}
+
+::selection {
+  color: $white;
+  background: $main;
+}
+
+::-moz-selection {
+  color: $white;
+  background: $main;
+}
+
+.white {
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.color-background {
+  width: 100%;
+  height: 600px;
+  background: $color-background;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  width: 94%;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.half-container-no-split {
+  margin: 0;
+  width: 48%;
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.border {
+  box-sizing: border-box;
+  border: $boxborder;  /* #444 */
+  border-radius: $radius;
+  padding: $spacer3 $spacer3;
+  background: $black;
+}
+
+.border-bottom {
+  border-bottom: 2px solid $black;
+}
+
+.test {
+  width: 100%;
+  border-radius: $radius;
+  color: $black;
+  border: 2px solid $main;
+  padding: 20px;
+  box-sizing: border-box;
+  background: $main-light
+}
+
+.best {
+  word-break: break-word;
+  white-space: pre-line;
+  margin-top: -30px;
+  div {
+    margin-bottom: -30px;
+  }
+}
+
+/* ****************************** TITLES ****************************** */
+
+.mini-text {
+  font-size: .75em;
+}
+
+.title1 {
+  font-size: 1.35em;
+  font-weight: 700;
+}
+
+.title2 {
+  line-height: 1.35em;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.title3 {
+  line-height: 1.35em;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.title10 {
+  line-height: 1em;
+  font-size: 10em;
+  font-weight: 700;
+}
+
+/* ****************************** PADDING ****************************** */
+
+.pbhalf {
+  padding-bottom: $spacerhalf;
+}
+
+.pt1 {
+  padding-top: $spacer1;
+}
+
+.pb1 {
+  padding-bottom: $spacer1;
+}
+
+.pl1 {
+  padding-left: $spacer1;
+}
+
+.pr1 {
+  padding-right: $spacer1;
+}
+
+.pt2 {
+  padding-top: $spacer2;
+}
+
+.pb2 {
+  padding-bottom: $spacer2;
+}
+
+.pl2 {
+  padding-left: $spacer2;
+}
+
+.pr2 {
+  padding-right: $spacer2;
+}
+
+.pb3 {
+  padding-bottom: $spacer3;
+}
+
+.pb4 {
+  padding-bottom: $spacer4;
+}
+
+.pt3 {
+  padding-top: $spacer3;
+}
+
+.pb5 {
+  padding-bottom: $spacer5;
+}
+
+.pb7 {
+  padding-bottom: $spacer7;
+}
+
+.pt10 {
+  padding-top: $spacer10;
+}
+
+.pb10 {
+  padding-bottom: $spacer10;
+}
+
+/* ****************************** FORMS ****************************** */
+
+textarea:focus, input:focus {
+  @include transition;
+  outline: none;
+}
+
+label {
+  @include textLabels;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.5em;
+}
+
+input, textarea {
+  @include transition;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $border;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $border;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $border;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $border;
+}
+
+@mixin fields {
+  @include transition;
+  width: 100%;
+  font-size: 1.25em;
+  font-weight: 400;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: $radius;
+  font-family: $fancy; 
+  letter-spacing: .5px;
+  border: $boxborder;
+  color: $black;
+  &:hover {
+    @include transition;
+    border: 2px solid $border;
+  }
+  &:focus {
+    @include transition;
+    border: 2px solid $black;
+  }
+}
+
+.text-field {
+  @include fields;
+  padding: $spacer2;
+  background: #eee; /* #555 */
+}
+
+.select-field {
+  @include fields;
+  padding: $spacer1 $spacer2;
+  text-indent: $spacer2;
+  background: url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $white;
+  -webkit-appearance: none;
+  background-position-x: 12px;
+}
+
+.text-area {
+  @include fields;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 300px;
+  max-height: 800px;
+  height: 300px;
+  padding: $spacer1 $spacer2;
+  margin-top: $spacer1;
+  background: #eee;
+  display: block;
+}
+
+.field {
+  margin: 0 0 $spacer3 0;
+}
+
+@mixin buttons($color, $dark, $light) {
+  @include transition;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: $radius;
+  box-sizing: border-box;
+  font-family: $fancy;
+  letter-spacing: 0px;
+  padding: $spacer1 $spacer1;
+  background: $color;
+  border: 2px solid $dark;
+  color: $light;
+  -webkit-font-smoothing: unset;
+  -webkit-appearance: none;
+  &:hover {
+    background: $light;
+    color: $color;
+    border: 2px solid $color;
+  }
+}
+
+.main-button {
+  @include buttons($main, $main-dark, $main-light);
+  height: $formminheight;
+  line-height: $formlineheight;
+}
+
+.remember-active {
+  @include buttons($secondary, $secondary-dark, $secondary-light);
+  height: $formminheight;
+  line-height: $formlineheight;
+  &:hover {
+    background: $secondary;
+    color: $white;
+    border: 2px solid $secondary-dark;
+  }
+}
+
+.remember-inactive {
+  @include buttons($secondary, $secondary-dark, $secondary-light);
+  height: $formminheight;
+  line-height: $formlineheight;
+  background: $white;
+  border: 2px solid $grey;
+  color: $grey;
+}
+
+.large-main-button {
+  @include buttons($main, $main-dark, $main-light);
+  padding: $spacer3;
+}
+
+.delete-button {
+  @include buttons($red, $red-dark, $red-light);
+  height: $formminheight;
+  line-height: $formlineheight;
+}
+
+/* ****************************** HEADRER ****************************** */
+
+.header-container {
+  width: 94%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.header {
+  li {
+    display: inline-block;
+    margin-left: $spacer1;
+  }
+}
+
+.nav-links {
+  @include transition;
+  border-radius: $radius;
+  padding: 10px;
+  color: $white;
+  &:hover {
+    @include transition;
+    color: $white;
+    background: $main;
+    border-radius: $radius;
+  }
+}
+
+#menu-container {
+  display: none;
+  width: 100%;
+  top: 0;
+  right: 0;
+  background: $main;
+}
+
+.side-menu {
+  z-index: 1005;
+  background: $white;
+  height: 100%;
+  position: fixed;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    li {
+      padding: $spacer1 0;
+      position: relative;
+      font-size: 1.5em;
+    }
+  }
+  .nav-links {
+    color: $white;
+    padding: $spacerhalf 0;
+    line-height: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:hover {
+      color: $black;
+      background: transparent;
+    }
+  }
+  .header-title-container {
+    a {
+      color: $white;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+.title-container {
+  @include transition;
+  width: 265px;
+  display: inline-block;
+}
+
+.nav-container {
+  @include transition;
+  width: calc(100% - 265px);
+  display: inline-block;
+}
+
+.header-line-height {
+  line-height: 60px;
+}
+
+.header-title-container {
+  @include transition;
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+#menu-click-open {
+  @include transition;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: $white;
+}
+
+#menu-click-close {
+  @include transition;
+  cursor: pointer;
+  font-size: 1.9em;
+  color: $white;
+}
+
+/* ****************** FOOTER ************** */
+
+.full-footer-container {
+  width: 94%;
+  max-width: 1600px;
+  clear: both;
+  padding-top: $spacer10;
+  margin: 0 auto;
+}
+
+.footer {
+  font-size: .75em;
+  width: 100%;
+  display: inline-block;
+  .nav-links {
+    @include transition;
+    color: $darkgrey;
+    padding: 0;
+    &:hover {
+      @include transition;
+      color: $main;
+      background: transparent;
+    }
+  }
+  li {
+    position: relative;
+    display: inline-block;
+    margin: 0 $spacer1;
+    &:first-child {
+      margin: 0 $spacer1 0 0;
+    }
+  }
+}
+
+.footer-disclaimer {
+  font-size: .75em;
+  text-align: center;
+  color: $darkgrey;
+}
+
+/* ***************** PAGINATION *************** */
+
+.pagination {
+  font-size: 1.25em;
+}
+
+.next,
+.prev,
+.page,
+.last {
+  a {
+    padding: 0 $spacerhalf;
+  }
+}
+
+.current {
+  padding: 0 $spacerhalf;
+}
+
+/* ******* JAVESCRIPT ***** */
+
+#site-form,
+.slider-0,
+.slider-1,
+.slider-2,
+.slider-3,
+.slider-4,
+.slider-5,
+.slider-6,
+.slider-7,
+.slider-8,
+.slider-9 {
+  display: none;
+}
+
+.add-lyrics-click {
+  cursor: pointer;
+}
+
+#close-form-click {
+  cursor: pointer;
+  font-size: 1.9em;
+  line-height: 1.65em;
+}
+
+/* **************** MOBILE **************** */
+
+.mobile-only,
+.mobile-only-block {
+  display: none;
+}
+
+/* ***** MEDIA QUERIES ***** */
+
+@media screen and (max-width: 824px) {
+
+  .container {
+    width: 92%;
+  }
+
+  .flash {
+    width: 92%;
+    left: 3%;
+  }
+
+  .mobile-only {
+    display: inline-block;
+  }
+  .mobile-only-block {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  @mixin mobile-nav {
+    float: none;
+    text-align: center;
+  }
+
+  .nav {
+    display: block;
+    ul {
+      width: 100%;
+      display: block;
+      li {
+        width: 30%;
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  #menu-container {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .side-menu {
+    ul {
+      text-align: center;
+      li {
+        text-align: center;
+        padding: $spacer1 0;
+        font-size: 1.25em;
+      }
+    }
+  }
+
+}
