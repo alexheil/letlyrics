@@ -1,23 +1,30 @@
 <div class="pb5"></div>
-<div class="test">
+<div class="az-container">
+  <%= link_to(root_url) do %>
+    <div class="az-padding">
 
-  <div class="flex">
-    <div class="az-play-container">
-      <div class="title3">
-        <i class="far fa-play-circle"></i>
+      <div class="flex">
+        <div class="az-play-container">
+          <i class="far fa-play-circle"></i>
+        </div>
+        <div class="az-song-container">
+          <div class="az-title1">
+            <% if @track.present? %>
+              <%= @track.name %> by <%= @artist.name %>
+            <% elsif @album.present? %>
+              <%= @album.name %> by <%= @artist.name %>
+            <% elsif @artist.present? %>
+              <%= @artist.name %>
+            <% end %>
+            <div class="border-bottom"></div>
+          </div>
+          <div class="mini-text">
+            Listen with Amazon Music Unlimited <i class="fab fa-amazon"></i>
+          </div>
+        </div>
       </div>
+      
     </div>
-    <div class="az-song-container">
-      Play
-    </div>
-  </div>
-
-  <% if @track.present? %>
-    <%= @track.name %> on Amazon Music (<i class="fab fa-amazon"></i>)
-  <% elsif @album.present? %>
-    <%= @album.name %> on Amazon Music (<i class="fab fa-amazon"></i>)
-  <% elsif @artist.present? %>
-    <%= @artist.name %> on Amazon Music (<i class="fab fa-amazon"></i>)
   <% end %>
 </div>
 <div class="pb5"></div>

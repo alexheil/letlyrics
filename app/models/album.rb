@@ -5,7 +5,8 @@ class Album < ApplicationRecord
   belongs_to :artist
   has_many :tracks, dependent: :destroy
 
-  default_scope -> { order('name') }
+  scope :alpha, -> { order('name') }
+  scope :recent, -> { order("created_at DESC") }
 
   validates :name, :uniqueness => {:scope => :artist_id}, presence: true, length: { maximum: 100 }
   

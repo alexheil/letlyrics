@@ -9,11 +9,9 @@
   <div class="pb1"></div>
 
   <% @tracks.each do |track| %>
-    
-    <div class="title1">
-      <%= link_to track.name, artist_album_track_path(@artist, @album, track), class: "secondary-link" %>
-    </div>
-    <div class="pb1"></div>
+
+    <%= link_to track.name, artist_album_track_path(@artist, @album, track), class: "third-link" %>
+    <div class="pbhalf"></div>
 
   <% end %>
 

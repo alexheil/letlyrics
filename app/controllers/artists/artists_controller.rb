@@ -1,9 +1,10 @@
 class Artists::ArtistsController < ApplicationController
 
   before_action :set_variables, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @artists = Artist.all
+    @artists = Artist.alpha.page params[:page]
   end
 
   def show

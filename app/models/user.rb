@@ -9,10 +9,11 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
-  scope :popular, -> {select("users.id, users.slug, users.username, count(lyrics.id) lyrics_count").joins(:lyrics).group("users.id").reorder("lyrics_count desc").limit(10)}
+  scope :popular, -> {select("users.id, users.slug, users.username, count(tracks.id) tracks_count").joins(:tracks).group("users.id").reorder("tracks_count desc").limit(10)}
 
-  has_many :lyrics
-  has_many :comments, dependent: :destroy
+  has_many :tracks
+
+  before_validation :generate_username
 
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z0-9 ]+\Z/i }
   validate :validate_username
@@ -37,12 +38,32 @@ class User < ApplicationRecord
 
   private
 
+    def generate_username
+      require 'securerandom' 
+      random = SecureRandom.hex(2)
+
+      username = self.email.split("@").first if self.username.blank?
+
+      if User.where(username: username).exists?
+        self.username = username + "ll#{random}"
+      else
+        self.username = username
+      end
+      self.slug = self.username if self.slug.blank?
+      puts self.username
+      puts self.slug
+    end
+
     def should_generate_new_friendly_id?
       username_changed?
     end
 
     def downcase_username
       self.username = username.downcase
+    end
+
+    def slug_candidates
+      [:username, [:username, "#{User.all.count + 1}"]]
     end
     
 end

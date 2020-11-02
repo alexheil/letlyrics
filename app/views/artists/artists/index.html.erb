@@ -1,6 +1,23 @@
 <% if @artists.any? %>
-  <b>Artists <%= @artists.count %></b></br></br>
+
+  <div class="mini-text bold">
+    <span class="border-bottom">ARTISTS</span>
+  </div>
+
+  <div class="pb1"></div>
+
   <% @artists.each do |artist| %>
-    <%= link_to artist.name, artist_path(artist) %> - <%= artist.albums.count if artist.albums.any? %> - <%= artist.tracks.count if artist.tracks.any? %></br>
+    
+    <div class="title1">
+      <%= link_to artist.name, artist_path(artist) %>
+    </div>
+
+    <div class="pb1"></div>
+
   <% end %>
+
+  <% if @artists.count > 24 %>
+    <%= paginate @artists %>
+  <% end %>
+
 <% end %>

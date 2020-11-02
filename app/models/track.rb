@@ -4,9 +4,10 @@ class Track < ApplicationRecord
 
   belongs_to :artist
   belongs_to :album
-  #belongs_to :user
+  belongs_to :user
 
-  default_scope -> { order('name') }
+  scope :alpha, -> { order('name') }
+  scope :recent, -> { order("created_at DESC") }
 
   validates :name, :uniqueness => {:scope => :album_id}, presence: true, length: { maximum: 150 }
   validates :content, presence: true, length: { maximum: 25000 }

@@ -1,9 +1,9 @@
 class Tracks::TracksController < ApplicationController
 
   before_action :set_variables, except: [:new, :create]
+  before_action :authenticate_user!, except: :show
 
   def new
-    #@artist = Artist.find(1)
     @track = Track.new
   end
 
@@ -15,6 +15,7 @@ class Tracks::TracksController < ApplicationController
     @uni_track = Track.new(track_params)
     @uni_track.artist_id = @artist.id
     @uni_track.album_id = @album.id
+    @uni_track.user_id = current_user.id
 
     if @uni_track.save
       redirect_to root_url
@@ -26,6 +27,7 @@ class Tracks::TracksController < ApplicationController
 
   def show
     @albums = @artist.albums
+    @user = @track.user || User.find(1)
   end
 
   def edit

@@ -1,6 +1,7 @@
 class Albums::AlbumsController < ApplicationController
 
   before_action :set_variables
+  before_action :authenticate_user!, except: :show
 
   def show
     @tracks = @album.tracks

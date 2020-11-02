@@ -4,7 +4,7 @@
   </div>
   <div class="pbhalf"></div>
   <div class="title2">
-    <%= link_to @artist.name, artist_path(@artist) %>
+    <%= link_to @artist.name, artist_path(@artist), class: "first-link-dark" %>
   </div>
 <% end %>
 
@@ -15,7 +15,7 @@
   </div>
   <div class="pbhalf"></div>
   <div class="title1">
-    <%= link_to @album.name, artist_album_path(@artist, @album), class: "secondary-link" %>
+    <%= link_to @album.name, artist_album_path(@artist, @album), class: "secondary-link-dark" %>
   </div>
 <% end %>
 
@@ -26,6 +26,6 @@
   </div>
   <div class="pbhalf"></div>
   <div class="title1">
-    <%= @track.name %>
+    <%= link_to @track.name, artist_album_track_path(@artist, @album, @track), class: "third-link-dark" %>
   </div>
 <% end %>

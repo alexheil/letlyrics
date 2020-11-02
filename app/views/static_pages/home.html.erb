@@ -1,69 +1,97 @@
-Hi, this is the homepage for letlyrics!
+<div class="center">
 
-</br></br>
+  <div class="title3 white">
+    let:lyrics
+  </div>
 
-<% unless user_signed_in? %>
-  <%= link_to 'Register', register_path %> or <%= link_to 'Sign in', sign_in_path %>
-<% else %>
-  <%= link_to 'Your page', user_path(current_user) %> or <%= link_to 'Sign out',sign_out_path %>
-<% end %>
-</br></br>
+  <div class="pb5"></div>
 
-<% if Track.any? %>
-  <b>Full lyrics <%= Track.all.count %></b></br></br>
-  <% Track.all.each do |track| %>
+  <div class="bold white">
+    You can find lyrics from all new songs, albums, and artists. Our lyrics are added by people just like you!
+  </div>
 
-    <%= link_to track.artist.name, artist_path(track.artist) %></br>
-    <%= link_to track.album.name, artist_album_path(track.artist, track.album) %></br>
-    <%= link_to track.name, artist_album_track_path(track.artist, track.album, track) %></br>
-    <%= track.content %></br></br>
+  <% unless user_signed_in? %>
+    <div class="pb5"></div>
 
+    <div class="flex">
+      <div class="half-container-no-split">
+        <%= link_to(sign_in_path) do %>
+          <div class="sign-in-button">
+            Sign in
+          </div>
+        <% end %>
+      </div>
+
+      <div class="half-container-no-split">
+        <%= link_to(register_path) do %>
+          <div class="main-button">
+            Register
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
-  </br>
+  <div class="pb5"></div>
 
-<% end %>
+  <% if @artists.any? %>
 
-<% if Artist.any? %>
-  <b><%= link_to "Artists - " + Artist.all.count.to_s, artists_path %></b></br></br>
-  <% Artist.all.each do |artist| %>
+    <div class="mini-text bold">
+      <span class="border-bottom">POPULAR ARTISTS</span>
+    </div>
 
-    <%= link_to artist.name, artist_path(artist) %></br>
+    <div class="pb1"></div>
 
-    <% if artist.albums.any? %>
+    <% @artists.each do |artist| %>
+      
+      <div class="title1">
+        <%= link_to artist.name, artist_path(artist) %>
+      </div>
 
-      <% artist.albums.each do |album| %>
-
-        - <%= link_to album.name, artist_album_path(artist, album) %></br>
-
-        <% if album.tracks.any? %>
-
-          <% album.tracks.each do |track| %>
-            - - <%= link_to track.name, artist_album_track_path(artist, album, track) %></br>
-          <% end %>
-
-        <% end %>
-
-      <% end %>
-
-      </br>
+      <div class="pb1"></div>
 
     <% end %>
 
+    <div class="pb5"></div>
   <% end %>
 
-<% end %>
+  <% if @albums.any? %>
 
-<% if Album.any? %>
-  <b>Albums <%= Album.all.count %></b></br></br>
-  <% Album.all.each do |album| %>
+    <div class="mini-text bold">
+      <span class="border-bottom">POPULAR ALBUMS</span>
+    </div>
 
-    <%= link_to album.name, artist_album_path(album.artist, album) %></br>
-    <%= album.artist_name %></br></br>
+    <div class="pb1"></div>
 
+    <% @albums.each do |album| %>
+      
+      <div class="title1">
+        <%= link_to album.name, artist_album_path(album.artist, album) %>
+      </div>
+
+      <div class="pb1"></div>
+
+    <% end %>
+
+    <div class="pb5"></div>
   <% end %>
 
-<% end %>
+  <% if @tracks.any? %>
 
-</br></br>
-<%= link_to 'Add lyrics', new_track_path %>
+    <div class="mini-text bold">
+      <span class="border-bottom">POPULAR TRACKS</span>
+    </div>
+
+    <div class="pb1"></div>
+
+    <% @tracks.each do |track| %>
+      <div class="title1">
+        <%= link_to track.name, artist_album_track_path(track.artist, track.album, track) %>
+      </div>
+      <div class="pb1"></div>
+    <% end %>
+
+    <div class="pb5"></div>
+  <% end %>
+
+</div>

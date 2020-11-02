@@ -1,1 +1,34 @@
-Wow! Look at your page, <%= current_user.email %>!
+<div class="mini-text bold">
+  <span class="border-bottom">USERNAME</span> 
+  <% if user_signed_in? && @user == current_user %>
+   - <%= link_to "Settings", edit_user_settings_path(current_user), class: "first-link-dark" %>
+  <% end %>
+</div>
+<div class="pbhalf"></div>
+<div class="title2">
+  <%= link_to @user.username, user_path(@user), class: "first-link-dark" %>
+</div>
+
+<div class="pb1"></div>
+<div class="mini-text bold">
+  <span class="border-bottom">LYRICS ADDED</span>
+</div>
+<div class="pbhalf"></div>
+<div class="title1">
+  <%= @user.tracks.count %>
+</div>
+
+<% if @tracks.any? %>
+
+  <div class="pb1"></div>
+  <div class="mini-text bold">
+    <span class="border-bottom">RECENTLY ADDED LYRICS</span>
+  </div>
+  <div class="pbhalf"></div>
+  <% @tracks.each do |track| %>
+    <%= link_to track.name, artist_album_track_path(track.artist, track.album, track), class: "third-link" %> by <%= link_to track.artist.name, artist_path(track.artist) %>
+    <div class="pbhalf"></div>
+  <% end %>
+  <div class="pb2"></div>
+
+<% end %>

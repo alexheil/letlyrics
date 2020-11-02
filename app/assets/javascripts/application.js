@@ -64,14 +64,24 @@ $(document).on('turbolinks:load', formTabs);
 
 var addLyrics = function() {
 
-  $('.add-lyrics-click').click(function() {
+  $('.site-form-click').click(function() {
     $('#menu-container').fadeOut(1000);
     $('#site-content').fadeOut(1000);
+    $('#register-form').fadeOut(1000);
     $('#site-form').delay(1000).fadeIn(1000);
   });
 
-  $('#close-form-click').click(function() {
+  $('.register-click').click(function() {
+    $('#menu-container').fadeOut(1000);
+    $('#site-content').fadeOut(1000);
     $('#site-form').fadeOut(1000);
+    $('#register-form').delay(1000).fadeIn(1000);
+  });
+
+
+  $('.close-form-click').click(function() {
+    $('#site-form').fadeOut(1000);
+    $('#register-form').fadeOut(1000);
     $('#site-content').delay(1000).fadeIn(1000);
   });
 
@@ -87,7 +97,7 @@ var transitionContent = function() {
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-  var newBackground = getRandomInt(10);
+  var newBackground = getRandomInt(11);
   console.log(newBackground);
 
   $('.slider-' + newBackground).show();
@@ -98,8 +108,8 @@ var transitionContent = function() {
 
     var currentBackground = newBackground - 1;
 
-    if(newBackground > 9) currentBackground = 9;
-    if(newBackground > 9) newBackground = 1;
+    if(newBackground >10) currentBackground =10;
+    if(newBackground >10) newBackground = 1;
 
     $('.slider-' + currentBackground).fadeOut(1000, function() {
       $('.slider-' + newBackground).fadeIn(1500);

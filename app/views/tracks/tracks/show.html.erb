@@ -4,6 +4,12 @@
   <%= @track.content %>
 </div>
 
+<div class="pb3"></div>
+
+<div class="mini-text">
+  Created by <%= link_to @user.username, user_path(@user) %>
+</div>
+
 <%= render 'partials/meta/transition_content' %>
 
 <% if @albums.any? %>

@@ -7,9 +7,9 @@ $secondary: #ff4674; /* carrot */
 $secondary-dark: #DF3D66;
 $secondary-light: #FFEBF0;
 
-$third: #ffb6a2; /* carrot */
-$third-dark: #DF9F8E;
-$third-light: #FFF7F5;
+$third: #FA5634; /* carrot */
+$third-dark: #DB4B2E;
+$third-light: #FEECE9;
 
 $green: #19de6b; /* seaweed */
 $green-dark: #16c25e; /* seaweed */
@@ -97,7 +97,17 @@ a {
   color: $main;
   text-decoration: none;
   &:hover {
-    color: $main-dark;
+    color: $black;
+  }
+}
+
+.first-link-dark {
+  font-weight: 700;
+  @include transition;
+  color: $main-dark;
+  text-decoration: none;
+  &:hover {
+    color: $black;
   }
 }
 
@@ -107,7 +117,17 @@ a {
   color: $secondary;
   text-decoration: none;
   &:hover {
-    color: $secondary-dark;
+    color: $black;
+  }
+}
+
+.secondary-link-dark {
+  font-weight: 700;
+  @include transition;
+  color: $secondary-dark;
+  text-decoration: none;
+  &:hover {
+    color: $black;
   }
 }
 
@@ -117,7 +137,17 @@ a {
   color: $third;
   text-decoration: none;
   &:hover {
-    color: $third-dark;
+    color: $black;
+  }
+}
+
+.third-link-dark {
+  font-weight: 700;
+  @include transition;
+  color: $third-dark;
+  text-decoration: none;
+  &:hover {
+    color: $black;
   }
 }
 
@@ -132,6 +162,7 @@ a {
 }
 
 .white {
+  color: $white;
   a {
     color: $white;
     &:hover {
@@ -142,7 +173,7 @@ a {
 
 .color-background {
   width: 100%;
-  height: 600px;
+  height: 1000px;
   background: $color-background;
   position: absolute;
   z-index: -1;
@@ -179,6 +210,14 @@ a {
   font-weight: 700;
 }
 
+.normal {
+  font-weight: 400;
+}
+
+.thin {
+  font-weight: 300;
+}
+
 .border {
   box-sizing: border-box;
   border: $boxborder;  /* #444 */
@@ -191,14 +230,8 @@ a {
   border-bottom: 2px solid $black;
 }
 
-.test {
-  width: 100%;
-  border-radius: $radius;
-  color: $black;
-  border: 2px solid $main;
-  padding: 20px;
-  box-sizing: border-box;
-  background: $main-light
+.border-bottom-white {
+  border-bottom: 2px solid $white;
 }
 
 .best {
@@ -214,6 +247,7 @@ a {
 
 .mini-text {
   font-size: .75em;
+  font-weight: 400;
 }
 
 .title1 {
@@ -313,9 +347,12 @@ textarea:focus, input:focus {
 }
 
 label {
-  @include textLabels;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  font-size: 1.5em;
+  font-size: 1em;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-underline-position: under;
 }
 
 input, textarea {
@@ -323,7 +360,6 @@ input, textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
-
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: $border;
@@ -348,11 +384,11 @@ input, textarea {
   border-radius: $radius;
   font-family: $fancy; 
   letter-spacing: .5px;
-  border: $boxborder;
+  border: 2px solid $border;
   color: $black;
   &:hover {
     @include transition;
-    border: 2px solid $border;
+    border: 2px solid $darkgrey;
   }
   &:focus {
     @include transition;
@@ -368,7 +404,7 @@ input, textarea {
 
 .select-field {
   @include fields;
-  padding: $spacer1 $spacer2;
+  padding: $spacer2;
   text-indent: $spacer2;
   background: url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $white;
   -webkit-appearance: none;
@@ -382,8 +418,7 @@ input, textarea {
   min-height: 300px;
   max-height: 800px;
   height: 300px;
-  padding: $spacer1 $spacer2;
-  margin-top: $spacer1;
+  padding: $spacer2;
   background: #eee;
   display: block;
 }
@@ -411,7 +446,7 @@ input, textarea {
   -webkit-font-smoothing: unset;
   -webkit-appearance: none;
   &:hover {
-    background: $light;
+    background: transparent;
     color: $color;
     border: 2px solid $color;
   }
@@ -419,14 +454,26 @@ input, textarea {
 
 .main-button {
   @include buttons($main, $main-dark, $main-light);
-  height: $formminheight;
-  line-height: $formlineheight;
+  font-size: 1.25em;
+  padding: $spacer2;
+}
+
+.sign-in-button {
+  @include buttons(transparent, $secondary, $secondary);
+  font-size: 1.25em;
+  padding: $spacer2;
+  &:hover {
+    background: $secondary;
+    color: $secondary-light;
+    border: 2px solid $secondary-dark;
+  }
 }
 
 .remember-active {
   @include buttons($secondary, $secondary-dark, $secondary-light);
   height: $formminheight;
   line-height: $formlineheight;
+  text-decoration: none;
   &:hover {
     background: $secondary;
     color: $white;
@@ -436,11 +483,13 @@ input, textarea {
 
 .remember-inactive {
   @include buttons($secondary, $secondary-dark, $secondary-light);
+  font-weight: 400;
   height: $formminheight;
   line-height: $formlineheight;
+  text-decoration: none;
   background: $white;
-  border: 2px solid $grey;
-  color: $grey;
+  border: 2px solid $darkgrey;
+  color: $darkgrey;
 }
 
 .large-main-button {
@@ -454,7 +503,7 @@ input, textarea {
   line-height: $formlineheight;
 }
 
-/* ****************************** HEADRER ****************************** */
+/* ****************************** HEADER ****************************** */
 
 .header-container {
   width: 94%;
@@ -474,11 +523,26 @@ input, textarea {
   border-radius: $radius;
   padding: 10px;
   color: $white;
+  border: 2px solid transparent;
   &:hover {
     @include transition;
     color: $white;
     background: $main;
-    border-radius: $radius;
+    border: 2px solid $main-dark;
+  }
+}
+
+.nav-links-border {
+  @include transition;
+  border-radius: $radius;
+  padding: 10px;
+  color: $white;
+  border: 2px solid $white;
+  &:hover {
+    @include transition;
+    color: $white;
+    background: $main;
+    border: 2px solid $main-dark;
   }
 }
 
@@ -512,9 +576,11 @@ input, textarea {
     line-height: 1em;
     font-weight: 700;
     text-transform: uppercase;
+    border: none;
     &:hover {
       color: $black;
       background: transparent;
+      border: none;
     }
   }
   .header-title-container {
@@ -536,6 +602,12 @@ input, textarea {
 .nav-container {
   @include transition;
   width: calc(100% - 265px);
+  display: inline-block;
+}
+
+.home-nav-container {
+  @include transition;
+  width: 100%;
   display: inline-block;
 }
 
@@ -570,7 +642,7 @@ input, textarea {
   color: $white;
 }
 
-/* ****************** FOOTER ************** */
+/* ****************** FOOTER ****************** */
 
 .full-footer-container {
   width: 94%;
@@ -587,19 +659,21 @@ input, textarea {
   .nav-links {
     @include transition;
     color: $darkgrey;
-    padding: 0;
+    padding: 0 $spacerhalf;
+    border: none;
     &:hover {
       @include transition;
       color: $main;
       background: transparent;
+      border: none;
     }
   }
   li {
     position: relative;
     display: inline-block;
-    margin: 0 $spacer1;
+    margin: 0 0 0 $spacer1;
     &:first-child {
-      margin: 0 $spacer1 0 0;
+      margin: 0;
     }
   }
 }
@@ -610,7 +684,210 @@ input, textarea {
   color: $darkgrey;
 }
 
-/* ***************** PAGINATION *************** */
+/* ****************** DISPLAYS ****************** */
+
+@mixin display_container($color, $color-light) {
+  @include transition;
+  width: 100%;
+  border-radius: $radius;
+  color: $black;
+  border: 2px solid $black;
+  box-sizing: border-box;
+  background: $white;
+  &:hover {
+    @include transition;
+    border: 2px solid $color;
+    background: $color-light;
+  }
+}
+
+.az-container {
+  @include display_container($main, $main-light);
+}
+
+.az-padding {
+  padding: 10px;
+}
+
+.az-play-container {
+  width: 62px;
+  display: inline-block;
+  font-size: 3em;
+}
+
+.az-song-container {
+  width: calc(100% - 72px);
+  display: inline-block;
+}
+
+.az-title1 {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+$nd-main: #fc9580;
+$nd-main-light: #fff2ef;
+
+$nd-secondary: #80e7fc;
+
+$nr-main: #5AC081;
+$nr-main-light: #FFF6F0;
+
+$nb-main: #C71939;
+$nb-main-light: #E7F8F6;
+
+$nfyi-main: #CCE499;
+$nfyi-main-light: #fdfdfd;
+
+.nd-container {
+  @include display_container($nd-main, $nd-main-light);
+}
+
+.nr-container {
+  @include display_container($nr-main, $nr-main-light);
+}
+
+.nb-container {
+  @include display_container($nb-main, $nb-main-light);
+}
+
+.nfyi-container {
+  @include display_container($black, #444);
+  background: $black;
+}
+
+.nd-padding {
+  padding: 20px;
+}
+
+.nd-logo-container {
+  width: 100%;
+  display: inline-block;
+}
+
+.nd-logo {
+  margin: 0 auto;
+  width: 60px;
+  img {
+    width: auto;
+    height: 60px;
+    display: block;
+    border-radius: 0px;
+  }
+}
+
+.nd-main {
+  color: $nd-main;
+  &:hover {
+    color: $nd-main;
+  }
+}
+
+.nd-secondary {
+  color: $nd-secondary;
+  &:hover {
+    color: $nd-secondary;
+  }
+}
+
+.nd-black {
+  color: $black;
+  &:hover {
+    color: $black;
+  }
+}
+
+.nr-main {
+  color: $nr-main;
+  &:hover {
+    color: $nr-main;
+  }
+}
+
+.nb-main {
+  color: $nb-main;
+  &:hover {
+    color: $nb-main;
+  }
+}
+
+.nfyi-white {
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+}
+
+@mixin nfyi-color($color) {
+  color: $color;
+  &:hover {
+    color: $color;
+  }
+}
+
+$nfyi-1: #CCE499;
+$nfyi-2: #95DCB3;
+$nfyi-3: #78D4CC;
+$nfyi-4: #7AADC0;
+$nfyi-5: #8686A3;
+$nfyi-6: #926F8D;
+$nfyi-7: #BA6987;
+$nfyi-8: #DC6F83;
+$nfyi-9: #FC9580;
+
+.nfyi-1 {
+  @include nfyi-color($nfyi-1);
+}
+
+.nfyi-2 {
+  @include nfyi-color($nfyi-2);
+}
+
+.nfyi-3 {
+  @include nfyi-color($nfyi-3);
+}
+
+.nfyi-4 {
+  @include nfyi-color($nfyi-4);
+}
+
+.nfyi-5 {
+  @include nfyi-color($nfyi-5);
+}
+
+.nfyi-6 {
+  @include nfyi-color($nfyi-6);
+}
+
+.nfyi-7 {
+  @include nfyi-color($nfyi-7);
+}
+
+.nfyi-8 {
+  @include nfyi-color($nfyi-8);
+}
+
+.nfyi-9 {
+  @include nfyi-color($nfyi-9);
+}
+
+.nd-title-underline {
+  border-bottom: 3px solid $black;
+}
+
+.display-small-container {
+  width: 62px;
+  display: inline-block;
+  img {
+    margin: 0 auto;
+    width: auto;
+    height: 62px;
+    display: block;
+    border-radius: 0px;
+  }
+}
+
+/* ****************** PAGINATION ****************** */
 
 .pagination {
   font-size: 1.25em;
@@ -629,10 +906,11 @@ input, textarea {
   padding: 0 $spacerhalf;
 }
 
-/* ******* JAVESCRIPT ***** */
+/* ****************** JAVASCRIPT ****************** */
 
 #site-form,
-.slider-0,
+#register-form,
+.slider-10,
 .slider-1,
 .slider-2,
 .slider-3,
@@ -645,14 +923,23 @@ input, textarea {
   display: none;
 }
 
-.add-lyrics-click {
+.site-form-click,
+.register-click {
   cursor: pointer;
 }
 
-#close-form-click {
+.close-form-click {
+  @include transition;
+  width: auto;
   cursor: pointer;
   font-size: 1.9em;
   line-height: 1.65em;
+  color: $white;
+  padding-left: 15px;
+  &:hover {
+    @include transition;
+    color: $black;
+  }
 }
 
 /* **************** MOBILE **************** */
@@ -665,6 +952,10 @@ input, textarea {
 /* ***** MEDIA QUERIES ***** */
 
 @media screen and (max-width: 824px) {
+
+  body {
+    font-size: 18px;
+  }
 
   .container {
     width: 92%;
@@ -719,6 +1010,22 @@ input, textarea {
         font-size: 1.25em;
       }
     }
+  }
+
+  .az-play-container {
+    width: 56px;
+  }
+
+  .display-small-container {
+    width: 56px;
+    img {
+      height: 56px;
+    }
+  }
+
+  .az-song-container {
+    width: calc(100% - 66px);
+    display: inline-block;
   }
 
 }
