@@ -1,4 +1,4 @@
-<%= provide(:title, sanitize(@artist.name + " : " + @track.name) + " Lyrics") %>
+<%= provide(:title, sanitize(@track.name + " Lyrics : " + @artist.name)) %>
 
 <div class="best">
   <%= @track.content %>

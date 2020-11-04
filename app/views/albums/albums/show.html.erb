@@ -1,4 +1,4 @@
-<%= provide(:title, sanitize(@album.name) + "'s Lyrics") %>
+<%= provide(:title, sanitize(@album.name + " Lyrics : " + @artist.name)) %>
 
 <% if @tracks.any? %>
 
