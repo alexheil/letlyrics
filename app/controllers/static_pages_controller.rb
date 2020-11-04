@@ -8,4 +8,16 @@ class StaticPagesController < ApplicationController
     @tracks = Track.recent.limit(10)
   end
 
+  def about
+  end
+
+  def terms
+  end
+
+  def privacy
+  end
+
+  def dmca
+  end
+
 end

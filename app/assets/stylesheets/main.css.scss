@@ -171,6 +171,10 @@ a {
   }
 }
 
+.secondary-dark {
+  color: $secondary-dark;
+}
+
 .color-background {
   width: 100%;
   height: 1000px;
@@ -241,6 +245,13 @@ a {
   div {
     margin-bottom: -30px;
   }
+}
+
+.besttitle {
+  line-height: 1.25em;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: -37.5px;
 }
 
 /* ****************************** TITLES ****************************** */
@@ -514,7 +525,10 @@ input, textarea {
 .header {
   li {
     display: inline-block;
-    margin-left: $spacer1;
+    margin-left: $spacer2;
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 
@@ -595,13 +609,13 @@ input, textarea {
 
 .title-container {
   @include transition;
-  width: 265px;
+  width: 240px;
   display: inline-block;
 }
 
 .nav-container {
   @include transition;
-  width: calc(100% - 265px);
+  width: calc(100% - 240px);
   display: inline-block;
 }
 
@@ -891,6 +905,14 @@ $nfyi-9: #FC9580;
 
 .pagination {
   font-size: 1.25em;
+  color: $black;
+  font-weight: 700;
+  a {
+    color: $secondary;
+    &:hover {
+      color: $black;
+    }
+  }
 }
 
 .next,

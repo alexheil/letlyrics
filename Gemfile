@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'friendly_id'
 gem 'devise'
+gem 'kaminari'
 
 group :production do
   gem 'pg'

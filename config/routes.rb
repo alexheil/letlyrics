@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   
   root 'static_pages#home'
 
+  get 'privacy' => 'static_pages#privacy', path: 'privacy-policy'
+  get 'terms' => 'static_pages#terms', path: 'terms-of-use'
+  get 'dmca' => 'static_pages#dmca', path: 'dmca-policy'
+  get 'about' => 'static_pages#about'
+
   devise_for :users, controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations", confirmations: "users/confirmations",  unlocks: "users/unlocks"}
 
   devise_scope :user do

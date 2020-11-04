@@ -30,11 +30,11 @@ $(document).on('turbolinks:load', flashTimeout);
 var menuToggle = function() {
 
   $('#menu-click-open').click(function() {
-    $('#menu-container').fadeIn(300);
+    $('#menu-container').fadeIn(500);
   });
 
   $('#menu-click-close').click(function() {
-    $('#menu-container').fadeOut(300);
+    $('#menu-container').fadeOut(500);
   });
 
 };
@@ -65,24 +65,24 @@ $(document).on('turbolinks:load', formTabs);
 var addLyrics = function() {
 
   $('.site-form-click').click(function() {
-    $('#menu-container').fadeOut(1000);
-    $('#site-content').fadeOut(1000);
-    $('#register-form').fadeOut(1000);
-    $('#site-form').delay(1000).fadeIn(1000);
+    $('#menu-container').fadeOut(500);
+    $('#site-content').fadeOut(500);
+    $('#register-form').fadeOut(500);
+    $('#site-form').delay(500).fadeIn(500);
   });
 
   $('.register-click').click(function() {
-    $('#menu-container').fadeOut(1000);
-    $('#site-content').fadeOut(1000);
-    $('#site-form').fadeOut(1000);
-    $('#register-form').delay(1000).fadeIn(1000);
+    $('#menu-container').fadeOut(500);
+    $('#site-content').fadeOut(500);
+    $('#site-form').fadeOut(500);
+    $('#register-form').delay(500).fadeIn(500);
   });
 
 
   $('.close-form-click').click(function() {
-    $('#site-form').fadeOut(1000);
-    $('#register-form').fadeOut(1000);
-    $('#site-content').delay(1000).fadeIn(1000);
+    $('#site-form').fadeOut(500);
+    $('#register-form').fadeOut(500);
+    $('#site-content').delay(500).fadeIn(500);
   });
 
 };
