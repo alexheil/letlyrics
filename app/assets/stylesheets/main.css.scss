@@ -998,6 +998,12 @@ $nfyi-9: #FC9580;
     display: none;
   }
 
+  .header {
+    li {
+      margin-left: $spacer1;
+    }
+  }
+
   @mixin mobile-nav {
     float: none;
     text-align: center;
