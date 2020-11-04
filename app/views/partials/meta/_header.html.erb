@@ -5,7 +5,7 @@
       <div class="title-container">
         <div class="header-title-container">
           <%= link_to root_url do %>
-            RUBY <i class="far fa-gem"></i> LYRICS
+            RUBY <i class="secondary-dark far fa-gem"></i> LYRICS
           <% end %>
         </div>
       </div>
@@ -38,42 +38,44 @@
   </div>
 </header>
 
-<div id="menu-container" class="side-menu">
-  <header class="header-container pt1 pb1">
-    <div class="header-line-height">
+<div id="menu-container">
+  <div class="side-menu">
+    <header class="header-container pt1 pb1">
+      <div class="header-line-height">
 
-      <div class="flex">
+        <div class="flex">
 
-        <div class="title-container">
-          <div class="header-title-container">
-            <%= link_to root_url do %>
-              <span class="white">RUBY <i class="far fa-gem"></i> LYRICS</span>
-            <% end %>
+          <div class="title-container">
+            <div class="header-title-container">
+              <%= link_to root_url do %>
+                <span class="white">RUBY <i class="secondary-dark far fa-gem"></i> LYRICS</span>
+              <% end %>
+            </div>
           </div>
-        </div>
 
-        <div class="nav-container right">
-          <div id="menu-click-close">
-            <i class="fas fa-times"></i>
+          <div class="nav-container right">
+            <div id="menu-click-close">
+              <i class="fas fa-times"></i>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
 
-    <ul>
-      <div class="pb3"></div>
-      <li><%= link_to 'All Artists', artists_path, class: "nav-links" %></li>
-      <li class="add-lyrics-click"><span class="nav-links bold">Add Lyrics</span></li>
-      <% if user_signed_in? %>
-        <li><%= link_to 'Account', user_path(current_user), class: "nav-links" %></li>
-        <li><%= link_to 'Settings', edit_user_settings_path(current_user), class: "nav-links" %></li>
-        <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
-      <% else %>
-        <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
-        <li><%= link_to 'Register', register_path, class: "nav-links" %></li>
-      <% end %>
-    </ul>
+      <ul>
+        <div class="pb3"></div>
+        <li><%= link_to 'Artists', artists_path, class: "nav-links" %></li>
+        <li class="site-form-click"><span class="nav-links bold">Add Lyrics</span></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Account', user_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to 'Settings', edit_user_settings_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
+          <li><%= link_to 'Register', register_path, class: "nav-links" %></li>
+        <% end %>
+      </ul>
 
-  </header>
+    </header>
+  </div>
 </div>

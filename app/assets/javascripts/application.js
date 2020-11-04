@@ -98,7 +98,6 @@ var transitionContent = function() {
   }
 
   var newBackground = getRandomInt(11);
-  console.log(newBackground);
 
   $('.slider-' + newBackground).show();
 
