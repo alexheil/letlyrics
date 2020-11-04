@@ -71,8 +71,8 @@
           <li><%= link_to 'Settings', edit_user_settings_path(current_user), class: "nav-links" %></li>
           <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
         <% else %>
-          <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
-          <li><%= link_to 'Register', register_path, class: "nav-links" %></li>
+          <li class="site-form-click"><span class="nav-links bold">Sign In</span></li>
+          <li class="register-click"><span class="nav-links bold">Register</span></li>
         <% end %>
       </ul>
 

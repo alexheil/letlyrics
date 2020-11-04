@@ -565,14 +565,14 @@ input, textarea {
   top: 0;
   right: 0;
   background: $white;
-  height: 1000px;
+  height: 100%;
   position: fixed;
 }
 
 .side-menu {
   z-index: 1005;
   background: $color-background;
-  height: 100%;
+  height: 1000px;
   ul {
     list-style: none;
     padding: 0;
@@ -582,6 +582,10 @@ input, textarea {
       padding: $spacer1 0;
       position: relative;
       font-size: 1.5em;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
   .nav-links {
