@@ -36,7 +36,7 @@ class Tracks::TracksController < ApplicationController
   def update
     if @track.update_attributes(track_params)
       flash[:notice] = "Good job!"
-      redirect_to post_path(@track)
+      redirect_to artist_album_track_path(@artist, @album, @track)
     else
       flash.now[:alert] = 'Bad job!'
       render 'edit'
