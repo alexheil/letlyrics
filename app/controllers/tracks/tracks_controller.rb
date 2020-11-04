@@ -34,12 +34,25 @@ class Tracks::TracksController < ApplicationController
   end
 
   def update
+    if @track.update_attributes(track_params)
+      flash[:notice] = "Good job!"
+      redirect_to post_path(@track)
+    else
+      flash.now[:alert] = 'Bad job!'
+      render 'edit'
+    end
   end
 
   def destroy
   end
 
   private
+
+    def only_admin
+      unless user_signed_in? && current_user.id == (1 || 2)
+        redirect_to root_url
+      end
+    end
 
     def set_variables
       @track = Track.friendly.find(params[:id])
