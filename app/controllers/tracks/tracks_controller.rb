@@ -18,7 +18,7 @@ class Tracks::TracksController < ApplicationController
     @uni_track.user_id = current_user.id
 
     if @uni_track.save
-      redirect_to root_url
+      redirect_to artist_album_path(@artist, @album)
     else
       render 'new'
     end
