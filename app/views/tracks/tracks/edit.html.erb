@@ -7,7 +7,7 @@
 <div class="pb5"></div>
 
 <div class="form-container">
-  <%= form_for(@track, url: track_path) do |f| %>
+  <%= form_for(@track, url: artist_album_track_path(@artist, @album)) do |f| %>
     <span id="track_errors"><%= render 'partials/errors/track_errors' %></span>
 
       <%= f.label :artist_name, 'Artist' %>
