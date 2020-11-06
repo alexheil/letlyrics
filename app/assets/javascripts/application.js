@@ -84,6 +84,7 @@ var addLyrics = function() {
     $('#register-form').fadeOut(500);
     $('#site-content').delay(500).fadeIn(500);
   });
+  
 };
 
 $(document).ready(addLyrics);
