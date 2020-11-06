@@ -1,7 +1,7 @@
 <div class="center">
 
   <div class="bold white">
-    You can find lyrics from all new songs, albums, and artists. Our lyrics are added by people just like you! Help us out, or just enjoy the selection!
+    You can find lyrics from all new songs, albums, and artists. Our lyrics are added by people just like you! Help us out, or just enjoy the selection of <%= pluralize(Artist.all.count, 'artist') %>, <%= pluralize(Album.all.count, 'album') %>, and <%= pluralize(Track.all.count, 'lyric') %>!
   </div>
 
   <% unless user_signed_in? %>
