@@ -30,11 +30,11 @@ $(document).on('turbolinks:load', flashTimeout);
 var menuToggle = function() {
 
   $('#menu-click-open').click(function() {
-    $('#menu-container').fadeIn(500);
+    $('#menu-container').fadeIn(300);
   });
 
   $('#menu-click-close').click(function() {
-    $('#menu-container').fadeOut(500);
+    $('#menu-container').fadeOut(300);
   });
 
 };
@@ -65,24 +65,24 @@ $(document).on('turbolinks:load', formTabs);
 var addLyrics = function() {
 
   $('.site-form-click').click(function() {
-    $('#menu-container').fadeOut(500);
-    $('#site-content').fadeOut(500);
-    $('#register-form').fadeOut(500);
-    $('#site-form').delay(500).fadeIn(500);
+    $('#menu-container').fadeOut(300);
+    $('#site-content').fadeOut(300);
+    $('#register-form').fadeOut(300);
+    $('#site-form').delay(300).fadeIn(300);
   });
 
   $('.register-click').click(function() {
-    $('#menu-container').fadeOut(500);
-    $('#site-content').fadeOut(500);
-    $('#site-form').fadeOut(500);
-    $('#register-form').delay(500).fadeIn(500);
+    $('#menu-container').fadeOut(300);
+    $('#site-content').fadeOut(300);
+    $('#site-form').fadeOut(300);
+    $('#register-form').delay(300).fadeIn(300);
   });
 
 
   $('.close-form-click').click(function() {
-    $('#site-form').fadeOut(500);
-    $('#register-form').fadeOut(500);
-    $('#site-content').delay(500).fadeIn(500);
+    $('#site-form').fadeOut(300);
+    $('#register-form').fadeOut(300);
+    $('#site-content').delay(300).fadeIn(300);
   });
   
 };
@@ -93,11 +93,13 @@ $(document).on('turbolinks:load', addLyrics);
 
 var transitionContent = function() {
 
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  };
 
-  var newBackground = getRandomInt(11);
+  var newBackground = getRandomInt(0, 10);
 
   $('.slider-' + newBackground).show();
 
@@ -107,11 +109,11 @@ var transitionContent = function() {
 
     var currentBackground = newBackground - 1;
 
-    if(newBackground >10) currentBackground =10;
-    if(newBackground >10) newBackground = 1;
+    if(newBackground > 10) currentBackground = 10;
+    if(newBackground > 10) newBackground = 1;
 
     $('.slider-' + currentBackground).fadeOut(1000, function() {
-      $('.slider-' + newBackground).fadeIn(1500);
+      $('.slider-' + newBackground).fadeIn(1300);
     });
 
     setTimeout(changeBackground, 10000);
